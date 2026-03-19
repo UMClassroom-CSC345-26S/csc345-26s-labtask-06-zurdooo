@@ -1,0 +1,54 @@
+%------------------------------------------------------------------------------
+% SZS status Theorem for OSBenefits.formatted.txt
+% SZS output start Proof for OSBenefits.formatted.txt
+tff(osx_origin, axiom,
+    origin_of(osx, unix)).
+
+tff(my_computer_runs_osx, axiom,
+    runs(my_computer, osx)).
+
+tff(computer_benefits, axiom,
+    ! [C: computer, O: os, Or: origin] :
+      ( ( runs(C, O)
+        & origin_of(O, Or) )
+     => benefits_from(C, Or) )).
+
+tff(my_computer_benefits_from_unix, conjecture,
+    benefits_from(my_computer, unix)).
+
+tff(c_0_4, negated_conjecture,
+    ~ benefits_from(my_computer, unix),
+    inference(assume_negation, [status(cth)], [my_computer_benefits_from_unix])).
+
+tff(c_0_5, plain,
+    ! [X1: computer, X2: os, X3: origin] :
+      ( ~ runs(X1, X2)
+      | ~ origin_of(X2, X3)
+      | benefits_from(X1, X3) ),
+    inference(fof_nnf, [status(thm)], [computer_benefits])).
+
+tff(c_0_6, plain,
+    runs(my_computer, osx),
+    inference(split_conjunct, [status(thm)], [my_computer_runs_osx])).
+
+tff(c_0_7, plain,
+    origin_of(osx, unix),
+    inference(split_conjunct, [status(thm)], [osx_origin])).
+
+tff(c_0_8, negated_conjecture,
+    ~ benefits_from(my_computer, unix),
+    inference(split_conjunct, [status(thm)], [c_0_4])).
+
+tff(c_0_9, plain,
+    benefits_from(my_computer, unix),
+    inference(cn, [status(thm)],
+      inference(rw, [status(thm)],
+        inference(spm, [status(thm)], [c_0_5, c_0_6]),
+        c_0_7))).
+
+tff(c_0_10, negated_conjecture,
+    $false,
+    inference(sr, [status(thm)], [c_0_9, c_0_8]),
+    [proof]).
+% SZS output end Proof for OSBenefits.formatted.txt
+%------------------------------------------------------------------------------

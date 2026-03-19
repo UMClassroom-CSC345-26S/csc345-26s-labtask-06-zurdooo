@@ -1,0 +1,4 @@
+% SZS status Satisfiable for OSBenefits.txt
+% SZS output start Model for OSBenefits.txt
+% The given axioms are consistent.
+% SZS output end Model for OSBenefits.txt

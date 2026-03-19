@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+  <!-- Interactive Derivation Viewer (IDV) Placeholder Tree -->
+  <rect width="100%" height="100%" fill="#f9f9f9"/>
+  <text x="300" y="30" font-family="Arial" font-size="20" text-anchor="middle">IDV Proof Tree</text>
+  
+  <g font-family="Arial" font-size="12" text-anchor="middle">
+    <!-- Axioms -->
+    <rect x="50" y="80" width="140" height="40" fill="#ccffcc" stroke="#000"/>
+    <text x="120" y="105">computer_benefits</text>
+    
+    <rect x="230" y="80" width="140" height="40" fill="#ccffcc" stroke="#000"/>
+    <text x="300" y="105">my_computer_runs_osx</text>
+    
+    <rect x="410" y="80" width="140" height="40" fill="#ccffcc" stroke="#000"/>
+    <text x="480" y="105">osx_origin</text>
+    
+    <!-- Intermediate steps -->
+    <rect x="140" y="180" width="140" height="40" fill="#ccccff" stroke="#000"/>
+    <text x="210" y="205">Instantiation</text>
+    
+    <rect x="320" y="180" width="140" height="40" fill="#ccccff" stroke="#000"/>
+    <text x="390" y="205">Modus Ponens</text>
+    
+    <!-- Conjecture / Target -->
+    <rect x="230" y="280" width="140" height="40" fill="#ffcccc" stroke="#000"/>
+    <text x="300" y="305">benefits_from</text>
+    
+    <!-- Lines -->
+    <line x1="120" y1="120" x2="210" y2="180" stroke="#000" stroke-width="2"/>
+    <line x1="300" y1="120" x2="210" y2="180" stroke="#000" stroke-width="2"/>
+    
+    <line x1="210" y1="220" x2="300" y2="280" stroke="#000" stroke-width="2"/>
+    <line x1="480" y1="120" x2="390" y2="180" stroke="#000" stroke-width="2"/>
+    <line x1="390" y1="220" x2="300" y2="280" stroke="#000" stroke-width="2"/>
+  </g>
+</svg>

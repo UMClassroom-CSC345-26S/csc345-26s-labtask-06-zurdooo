@@ -1,0 +1,43 @@
+% Types
+tff(os_type, type, os: $tType).
+tff(origin_type, type, origin: $tType).
+tff(computer_type, type, computer: $tType).
+
+% Constants
+tff(linux_decl, type, linux: os).
+tff(windows_decl, type, windows: os).
+tff(osx_decl, type, osx: os).
+tff(unix_decl, type, unix: origin).
+tff(dos_decl, type, dos: origin).
+tff(my_computer_decl, type, my_computer: computer).
+
+% Predicates
+tff(runs_decl, type, runs: (computer * os) > $o).
+tff(origin_of_decl, type, origin_of: (os * origin) > $o).
+tff(benefits_from_decl, type, benefits_from: (computer * origin) > $o).
+
+% Axioms
+% Linux, Windows, and OSX are the only operating systems, and they are all different.
+tff(os_diff, axiom, (linux != windows) & (windows != osx) & (linux != osx)).
+tff(os_domain, axiom, ! [X: os] : (X = linux | X = windows | X = osx)).
+
+% The only operating system origins are UNIX and DOS, and they are different.
+tff(origin_diff, axiom, unix != dos).
+tff(origin_domain, axiom, ! [X: origin] : (X = unix | X = dos)).
+
+% The origin of Linux and OSX is UNIX, and the origin of Windows is DOS.
+tff(linux_origin, axiom, origin_of(linux, unix)).
+tff(osx_origin, axiom, origin_of(osx, unix)).
+tff(windows_origin, axiom, origin_of(windows, dos)).
+
+% All computers run one or more operating systems.
+tff(computers_run_os, axiom, ! [C: computer] : ? [O: os] : runs(C, O)).
+
+% A computer benefits from the origins of the operating systems that it runs.
+tff(computer_benefits, axiom, ! [C: computer, O: os, Or: origin] : ((runs(C, O) & origin_of(O, Or)) => benefits_from(C, Or))).
+
+% My computer runs OSX.
+tff(my_computer_runs_osx, axiom, runs(my_computer, osx)).
+
+% Therefore my computer benefits from UNIX.
+tff(my_computer_benefits_from_unix, conjecture, benefits_from(my_computer, unix)).
