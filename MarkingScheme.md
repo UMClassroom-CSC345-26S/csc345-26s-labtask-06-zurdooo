@@ -6,7 +6,7 @@
      <TD WIDTH=10%> &nbsp;
      <TD WIDTH=20%> &nbsp;
      <TD WIDTH=30%> Mark:
-     <TD WIDTH=10%> /4
+     <TD WIDTH=10%> 3.75/4 tree diagram not right
 
 <TR> <TD COLSPAN=5> &nbsp;
 <TR> <TD WIDTH=30%> Axioms
